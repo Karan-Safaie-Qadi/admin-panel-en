@@ -1,0 +1,9 @@
+{
+  "name": "digital-store-admin",
+  "version": "1.0.0",
+  "description": "Admin panel for digital products store - SPA with RTL support",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server ."
+  }
+}

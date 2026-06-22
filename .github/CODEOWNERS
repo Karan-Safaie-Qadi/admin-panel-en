@@ -1,0 +1,8 @@
+# Default owners
+* @Karan-Safaie-Qadi
+
+# Docs changes
+*.md @Karan-Safaie-Qadi
+
+# Config files
+.github/** @Karan-Safaie-Qadi

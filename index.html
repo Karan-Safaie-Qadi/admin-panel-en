@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Digital Store</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">⚡</div>
+        <div>
+          <div class="logo-text">DigiStore</div>
+          <div class="logo-sub">Admin Panel</div>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Main Menu</div>
+        <a class="nav-item active" data-route="dashboard" href="#dashboard">
+          <span class="nav-icon">📊</span> Dashboard
+        </a>
+        <a class="nav-item" data-route="products" href="#products">
+          <span class="nav-icon">📦</span> Products
+          <span class="nav-badge" id="nav-product-count">0</span>
+        </a>
+        <a class="nav-item" data-route="categories" href="#categories">
+          <span class="nav-icon">📁</span> Categories
+        </a>
+        <a class="nav-item" data-route="orders" href="#orders">
+          <span class="nav-icon">🛒</span> Orders
+          <span class="nav-badge" id="nav-order-count">0</span>
+        </a>
+        <a class="nav-item" data-route="users" href="#users">
+          <span class="nav-icon">👥</span> Users
+        </a>
+        <div class="nav-section">Reports</div>
+        <a class="nav-item" data-route="reports" href="#reports">
+          <span class="nav-icon">📈</span> Reports
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="avatar">👨‍💼</div>
+        <div class="user-info">
+          <div class="user-name">System Admin</div>
+          <div class="user-role">Administrator</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN ─── -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-left">
+          <button class="header-btn hamburger">☰</button>
+          <h1 class="page-title">Dashboard <span>| Admin Panel</span></h1>
+        </div>
+        <div class="header-right">
+          <button class="header-btn">🔍</button>
+          <button class="header-btn">
+            🔔
+            <span class="notification-dot"></span>
+          </button>
+          <button class="header-btn">⚙️</button>
+        </div>
+      </header>
+
+      <!-- ─── DASHBOARD ─── -->
+      <section class="page-content" id="page-dashboard">
+        <div class="stats-grid">
+          <div class="stat-card animate-slide-up stagger-1" id="stat-products" onclick="App.navigate('products')" style="cursor:pointer">
+            <div class="stat-header">
+              <span class="stat-title">Products</span>
+              <span class="stat-icon">📦</span>
+            </div>
+            <div class="stat-value">0</div>
+            <div class="stat-change up">↑ 12% vs last month</div>
+          </div>
+          <div class="stat-card animate-slide-up stagger-2" id="stat-orders" onclick="App.navigate('orders')" style="cursor:pointer">
+            <div class="stat-header">
+              <span class="stat-title">Orders</span>
+              <span class="stat-icon">🛒</span>
+            </div>
+            <div class="stat-value">0</div>
+            <div class="stat-change up">↑ 23% vs last month</div>
+          </div>
+          <div class="stat-card animate-slide-up stagger-3" id="stat-revenue" onclick="App.navigate('reports')" style="cursor:pointer">
+            <div class="stat-header">
+              <span class="stat-title">Total Revenue</span>
+              <span class="stat-icon">💰</span>
+            </div>
+            <div class="stat-value">0</div>
+            <div class="stat-change up">↑ 18% vs last month</div>
+          </div>
+          <div class="stat-card animate-slide-up stagger-4" id="stat-users" onclick="App.navigate('users')" style="cursor:pointer">
+            <div class="stat-header">
+              <span class="stat-title">Users</span>
+              <span class="stat-icon">👥</span>
+            </div>
+            <div class="stat-value">0</div>
+            <div class="stat-change down">↓ 2% vs last month</div>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">📈 Monthly Sales</div>
+                <div class="card-subtitle">Last 12 months</div>
+              </div>
+              <button class="btn btn-sm btn-secondary">📥 Export</button>
+            </div>
+            <div class="chart-container"><canvas id="salesChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">📊 Categories</div>
+                <div class="card-subtitle">Product distribution</div>
+              </div>
+            </div>
+            <div class="chart-container"><canvas id="categoryChart"></canvas></div>
+          </div>
+        </div>
+
+        <div class="charts-grid" style="grid-template-columns:1fr 1fr">
+          <div class="chart-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">🏆 Top Selling Products</div>
+                <div class="card-subtitle">By units sold</div>
+              </div>
+            </div>
+            <div class="chart-container"><canvas id="productChart"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">🔄 Order Status Flow</div>
+                <div class="card-subtitle">Processing stages</div>
+              </div>
+            </div>
+            <div class="flowchart">
+              <div class="flow-step active">
+                <div class="step-circle">📝</div>
+                <span class="step-label">Pending</span>
+              </div>
+              <div class="flow-arrow">▶</div>
+              <div class="flow-step">
+                <div class="step-circle">⚙️</div>
+                <span class="step-label">Processing</span>
+              </div>
+              <div class="flow-arrow">▶</div>
+              <div class="flow-step">
+                <div class="step-circle">🚚</div>
+                <span class="step-label">Shipping</span>
+              </div>
+              <div class="flow-arrow">▶</div>
+              <div class="flow-step">
+                <div class="step-circle">✅</div>
+                <span class="step-label">Delivered</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-header">
+            <div>
+              <div class="card-title">🕐 Recent Orders</div>
+              <div class="card-subtitle">Last 5 orders</div>
+            </div>
+            <button class="btn btn-sm btn-secondary" onclick="App.navigate('orders')">View All</button>
+          </div>
+          <div class="table-container">
+            <table id="recent-orders-table">
+              <thead>
+                <tr><th>#</th><th>Customer</th><th>Products</th><th>Amount</th><th>Status</th><th>Date</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── PRODUCTS ─── -->
+      <section class="page-content page-hidden" id="page-products">
+        <div class="toolbar">
+          <div class="toolbar-right">
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" placeholder="Search products..." oninput="App.filterProducts(this.value)">
+            </div>
+          </div>
+          <div class="toolbar-left">
+            <button class="btn btn-primary" onclick="App.showAddProductModal()">➕ Add Product</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="table-container">
+            <table id="products-table">
+              <thead>
+                <tr><th></th><th>Product</th><th>Category</th><th>Price</th><th>Sales</th><th>Rating</th><th>Status</th><th>Actions</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="pagination" id="products-pagination"></div>
+        </div>
+      </section>
+
+      <!-- ─── CATEGORIES ─── -->
+      <section class="page-content page-hidden" id="page-categories">
+        <div class="toolbar">
+          <div></div>
+          <div class="toolbar-left">
+            <button class="btn btn-primary" onclick="App.showAddCategoryModal()">➕ New Category</button>
+          </div>
+        </div>
+        <div class="category-grid" id="categories-grid"></div>
+      </section>
+
+      <!-- ─── ORDERS ─── -->
+      <section class="page-content page-hidden" id="page-orders">
+        <div class="toolbar">
+          <div></div>
+          <div class="toolbar-left">
+            <button class="btn filter-btn btn-primary btn-sm" data-status="all" onclick="App.filterOrders('all')">📋 All</button>
+            <button class="btn filter-btn btn-secondary btn-sm" data-status="pending" onclick="App.filterOrders('pending')">⏳ Pending</button>
+            <button class="btn filter-btn btn-secondary btn-sm" data-status="processing" onclick="App.filterOrders('processing')">⚙️ Processing</button>
+            <button class="btn filter-btn btn-secondary btn-sm" data-status="shipped" onclick="App.filterOrders('shipped')">🚚 Shipped</button>
+            <button class="btn filter-btn btn-secondary btn-sm" data-status="delivered" onclick="App.filterOrders('delivered')">✅ Delivered</button>
+            <button class="btn filter-btn btn-secondary btn-sm" data-status="cancelled" onclick="App.filterOrders('cancelled')">❌ Canceled</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="table-container">
+            <table id="orders-table">
+              <thead>
+                <tr><th>#</th><th>Customer</th><th>Products</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── USERS ─── -->
+      <section class="page-content page-hidden" id="page-users">
+        <div class="card">
+          <div class="table-container">
+            <table id="users-table">
+              <thead>
+                <tr><th>User</th><th>Role</th><th>Status</th><th>Joined</th><th>Toggle</th><th>Actions</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── REPORTS ─── -->
+      <section class="page-content page-hidden" id="page-reports">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Total Revenue</span>
+              <span class="stat-icon">💰</span>
+            </div>
+            <div class="stat-value report-stat" data-key="total-revenue">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Total Orders</span>
+              <span class="stat-icon">📋</span>
+            </div>
+            <div class="stat-value report-stat" data-key="total-orders">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Avg. Order Value</span>
+              <span class="stat-icon">📊</span>
+            </div>
+            <div class="stat-value report-stat" data-key="avg-order">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-header">
+              <span class="stat-title">Top Product</span>
+              <span class="stat-icon">🏆</span>
+            </div>
+            <div class="stat-value report-stat" data-key="top-product" style="font-size:20px">—</div>
+          </div>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">📊 Monthly Sales (Bar Chart)</div>
+                <div class="card-subtitle">12-month breakdown</div>
+              </div>
+            </div>
+            <div class="chart-container"><canvas id="reportSalesChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">🎯 Revenue by Category</div>
+                <div class="card-subtitle">Polar area chart</div>
+              </div>
+            </div>
+            <div class="chart-container"><canvas id="reportCategoryChart"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

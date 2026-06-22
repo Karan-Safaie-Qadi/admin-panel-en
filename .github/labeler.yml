@@ -1,0 +1,18 @@
+# Auto-label PRs based on file changes
+documentation:
+- '**/*.md'
+- 'docs/**'
+- '**/docs/**'
+
+github_ops:
+- '.github/**'
+
+css:
+- '**/*.css'
+
+javascript:
+- '**/*.js'
+
+docker:
+- 'Dockerfile'
+- 'docker-compose.yml'

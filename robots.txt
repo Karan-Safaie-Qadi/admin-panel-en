@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://karan-safaie-qadi.github.io/admin-panel/sitemap.xml

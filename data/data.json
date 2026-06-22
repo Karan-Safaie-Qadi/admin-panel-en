@@ -1,0 +1,49 @@
+{
+  "products": [
+    { "id": 1, "name": "WordPress Premium Theme", "category": "Themes", "price": 89, "sales": 342, "rating": 4.8, "stock": 999, "status": "active", "createdAt": "2025-01-15", "description": "Responsive and fast WordPress theme with custom page builder", "image": "📦" },
+    { "id": 2, "name": "Laravel Training Pack", "category": "Courses", "price": 45, "sales": 567, "rating": 4.9, "stock": 999, "status": "active", "createdAt": "2025-01-20", "description": "Complete Laravel course from beginner to advanced", "image": "🎓" },
+    { "id": 3, "name": "E-Commerce Script", "category": "Scripts", "price": 120, "sales": 189, "rating": 4.7, "stock": 999, "status": "active", "createdAt": "2025-02-01", "description": "Professional e-commerce script built with React and Laravel", "image": "🛒" },
+    { "id": 4, "name": "Security Plugin", "category": "Plugins", "price": 35, "sales": 723, "rating": 4.6, "stock": 999, "status": "active", "createdAt": "2025-02-10", "description": "Advanced security plugin with firewall and anti-hack protection", "image": "🔒" },
+    { "id": 5, "name": "Admin Dashboard Theme", "category": "Themes", "price": 65, "sales": 215, "rating": 4.5, "stock": 999, "status": "active", "createdAt": "2025-02-15", "description": "Modern admin template with dark and light mode", "image": "📊" },
+    { "id": 6, "name": "React Native Course", "category": "Courses", "price": 55, "sales": 431, "rating": 4.8, "stock": 999, "status": "active", "createdAt": "2025-03-01", "description": "Build mobile apps with React Native from scratch", "image": "📱" },
+    { "id": 7, "name": "Online Booking Script", "category": "Scripts", "price": 98, "sales": 156, "rating": 4.4, "stock": 999, "status": "active", "createdAt": "2025-03-10", "description": "Online reservation system for hotels and restaurants", "image": "📅" },
+    { "id": 8, "name": "SEO Plugin", "category": "Plugins", "price": 28, "sales": 892, "rating": 4.7, "stock": 999, "status": "active", "createdAt": "2025-03-15", "description": "WordPress SEO optimization plugin", "image": "🚀" },
+    { "id": 9, "name": "Python Masterclass", "category": "Courses", "price": 38, "sales": 645, "rating": 4.9, "stock": 999, "status": "active", "createdAt": "2025-04-01", "description": "Comprehensive Python course from zero to pro", "image": "🐍" },
+    { "id": 10, "name": "News Portal Theme", "category": "Themes", "price": 75, "sales": 178, "rating": 4.3, "stock": 999, "status": "inactive", "createdAt": "2025-04-10", "description": "Professional news theme with fast loading speed", "image": "📰" },
+    { "id": 11, "name": "Live Chat Script", "category": "Scripts", "price": 52, "sales": 234, "rating": 4.5, "stock": 999, "status": "active", "createdAt": "2025-04-15", "description": "Real-time online chat system with WebSocket", "image": "💬" },
+    { "id": 12, "name": "Membership Plugin", "category": "Plugins", "price": 19, "sales": 1102, "rating": 4.4, "stock": 999, "status": "active", "createdAt": "2025-05-01", "description": "Advanced membership and subscription system", "image": "👥" },
+    { "id": 13, "name": "Vue.js Training", "category": "Courses", "price": 42, "sales": 389, "rating": 4.6, "stock": 999, "status": "active", "createdAt": "2025-05-10", "description": "Vue.js framework course with practical projects", "image": "💚" },
+    { "id": 14, "name": "Project Management Script", "category": "Scripts", "price": 150, "sales": 98, "rating": 4.8, "stock": 999, "status": "active", "createdAt": "2025-05-15", "description": "Team and project management script with advanced features", "image": "📋" },
+    { "id": 15, "name": "Forum Theme", "category": "Themes", "price": 58, "sales": 143, "rating": 4.2, "stock": 999, "status": "inactive", "createdAt": "2025-06-01", "description": "Discussion forum theme with modern design", "image": "💬" }
+  ],
+  "categories": [
+    { "id": 1, "name": "Themes", "icon": "🎨", "color": "#4f46e5", "count": 4 },
+    { "id": 2, "name": "Scripts", "icon": "⚡", "color": "#f59e0b", "count": 4 },
+    { "id": 3, "name": "Plugins", "icon": "🔧", "color": "#10b981", "count": 3 },
+    { "id": 4, "name": "Courses", "icon": "📚", "color": "#ef4444", "count": 4 }
+  ],
+  "orders": [
+    { "id": 1001, "customer": "Ali Mohammadi", "email": "ali@example.com", "items": ["WordPress Premium Theme"], "total": 89, "status": "delivered", "date": "2025-06-01", "payment": "card" },
+    { "id": 1002, "customer": "Sara Ahmadi", "email": "sara@example.com", "items": ["Laravel Training Pack", "React Native Course"], "total": 100, "status": "processing", "date": "2025-06-03", "payment": "card" },
+    { "id": 1003, "customer": "Reza Karimi", "email": "reza@example.com", "items": ["E-Commerce Script"], "total": 120, "status": "pending", "date": "2025-06-05", "payment": "wallet" },
+    { "id": 1004, "customer": "Maryam Hosseini", "email": "maryam@example.com", "items": ["Security Plugin", "SEO Plugin"], "total": 63, "status": "delivered", "date": "2025-06-07", "payment": "card" },
+    { "id": 1005, "customer": "Amir Rezaei", "email": "amir@example.com", "items": ["Python Masterclass"], "total": 38, "status": "cancelled", "date": "2025-06-08", "payment": "card" },
+    { "id": 1006, "customer": "Narges Saeedi", "email": "narges@example.com", "items": ["Online Booking Script"], "total": 98, "status": "processing", "date": "2025-06-10", "payment": "wallet" },
+    { "id": 1007, "customer": "Kian Jafari", "email": "kian@example.com", "items": ["Membership Plugin", "SEO Plugin"], "total": 47, "status": "pending", "date": "2025-06-12", "payment": "card" },
+    { "id": 1008, "customer": "Leila Mohammadpour", "email": "leila@example.com", "items": ["Admin Dashboard Theme"], "total": 65, "status": "delivered", "date": "2025-06-14", "payment": "wallet" },
+    { "id": 1009, "customer": "Hosein Akbari", "email": "hosein@example.com", "items": ["Vue.js Training", "Python Masterclass"], "total": 80, "status": "shipped", "date": "2025-06-16", "payment": "card" },
+    { "id": 1010, "customer": "Zahra Sadeghi", "email": "zahra@example.com", "items": ["Live Chat Script"], "total": 52, "status": "delivered", "date": "2025-06-18", "payment": "card" },
+    { "id": 1011, "customer": "Mohammad Taheri", "email": "mohammad@example.com", "items": ["Project Management Script"], "total": 150, "status": "pending", "date": "2025-06-20", "payment": "wallet" },
+    { "id": 1012, "customer": "Navid Kashani", "email": "navid@example.com", "items": ["News Portal Theme"], "total": 75, "status": "processing", "date": "2025-06-22", "payment": "card" }
+  ],
+  "users": [
+    { "id": 1, "name": "System Admin", "email": "admin@store.com", "role": "admin", "status": "active", "joined": "2024-01-01", "avatar": "👨‍💼" },
+    { "id": 2, "name": "Ali Mohammadi", "email": "ali@example.com", "role": "user", "status": "active", "joined": "2025-01-15", "avatar": "👤" },
+    { "id": 3, "name": "Sara Ahmadi", "email": "sara@example.com", "role": "user", "status": "active", "joined": "2025-02-20", "avatar": "👩" },
+    { "id": 4, "name": "Reza Karimi", "email": "reza@example.com", "role": "editor", "status": "active", "joined": "2025-03-10", "avatar": "👨‍💻" },
+    { "id": 5, "name": "Maryam Hosseini", "email": "maryam@example.com", "role": "user", "status": "suspended", "joined": "2025-04-05", "avatar": "👩‍💼" },
+    { "id": 6, "name": "Amir Rezaei", "email": "amir@example.com", "role": "user", "status": "active", "joined": "2025-04-20", "avatar": "🧑‍💻" },
+    { "id": 7, "name": "Narges Saeedi", "email": "narges@example.com", "role": "editor", "status": "active", "joined": "2025-05-01", "avatar": "👩‍🎓" },
+    { "id": 8, "name": "Kian Jafari", "email": "kian@example.com", "role": "user", "status": "active", "joined": "2025-05-15", "avatar": "🧑‍🔧" }
+  ]
+}
