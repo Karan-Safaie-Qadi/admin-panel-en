@@ -35,3 +35,5 @@
 - **📱 Responsive** — Mobile-friendly sidebar, adaptive grid layouts
 
 <!-- setup phase 2 -->
+
+<!-- setup phase 3 -->
